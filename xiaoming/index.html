@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>刘功明泡妞记</title>
+</head>
+<body>
+    <script>
+        //alert('先取功明，再成家')；
+        //对象
+        class Flower{
+            constructor(type,n){//构造函数，new运行
+                this.type=type;//属性
+                this.n=n;
+                
+            }
+        }
+        var gongming={
+            name:'刘功明',
+            age:21,
+            favorite:['代码','看书','打撸'],
+            room:1114,
+            yz:70,
+            hometown:'赣州兴国',
+            isSingle:true,
+            sendFlower:function(target){
+                var flower=new Flower('红玫瑰',11);
+                console.log(flower.type,flower.n);
+                target.receiverFlower(this,flower);
+
+
+
+
+            }
+        
+        }
+
+        var xiaohong={
+            name:'小红',
+            age:18,
+            isGoodMod:false,//心情不好
+            receiveFlower:function(sender,flower){
+               console.log(sender,flower);
+               if(!this.isGoodMod){
+                   console.log('丑拒,娘娘心情不好');
+               }
+              else{
+                  console.log('万达走一波');
+              }
+          }
+           
+
+        }
+
+        var xiaomei={
+            hometown:'赣州兴国',
+            receiverFlower:function(sender,flower){
+                // if(sender.name=='刘功明'){
+                //     console.log('明哥哥，还是让我们在一起吧。。。');
+                // }else{]
+
+                //定时器
+                setTimeout(function(){
+                    xiaohong.isGoodMod=true;
+                    xiaohong.receiveFlower(sender,flower);
+                },10000)
+                   
+                }
+
+            }
+      //  }
+        gongming.sendFlower(xiaomei);
+        
+        </script>
+    
+</body>
+</html>
